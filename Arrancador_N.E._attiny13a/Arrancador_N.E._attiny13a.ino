@@ -11,6 +11,8 @@
   * En esta version se toman muestras de la señal cada cierto tiempo durante un tiempo de 
   * muestreo total guardandola en 12bytes donde se va poniento el estado logico medido en 
   * muetra y se va haciendo un corriemiento de bits hasta llenar los 12bytes (12x8 bi/muestras).
+  * 
+  * Nota: Esta version empieza a trabajar con el gestor de versiones gitHub
   ---------------------------------------------------------------------------------
 */
 #include <EEPROM.h>
