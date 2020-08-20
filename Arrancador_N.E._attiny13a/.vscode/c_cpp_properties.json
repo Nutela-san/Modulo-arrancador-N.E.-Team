@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "C:/Users/ponyj/AppData/Local/Arduino15/packages/MicroCore/hardware/avr/1.0.6/**",
+                "${workspaceFolder}/**",
+                "C:\\Users\\ponyj\\AppData\\Local\\Arduino15\\packages\\MicroCore\\hardware\\avr\\1.0.6\\**"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "intelliSenseMode": "msvc-x64",
+            "forcedInclude": [],
+            "compileCommands": ""
+        }
+    ],
+    "version": 4
+}
