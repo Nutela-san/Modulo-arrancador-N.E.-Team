@@ -92,11 +92,11 @@ void readSenalBytes() {
   for(j=0;j<12;j++){
     for(i=0;i<8;i++){
       if(!(PINB & (1<<IRS))){
-        Courrent_senal[j] << 1;   //corrimiento antes de meter el dato
-        Courrent_senal[j] = 0x01; //intriduciendo 1 en el LSB.
+        Courrent_senal[j] != 0x01; //intriduciendo 1 en el LSB.
+        Courrent_senal[j] = Courrent_senal[j] << 1;   //corrimiento antes de meter el dato
       }
       else{
-        Courrent_senal[j] << 1; //corrimiento de 1 espacion (añade 0 en LSB)
+        Courrent_senal[j] = Courrent_senal[j] << 1; //corrimiento de 1 espacion (añade 0 en LSB)
       }
       _delay_us(time_M);
     }
