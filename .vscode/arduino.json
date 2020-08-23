@@ -1,6 +1,6 @@
 {
+    "sketch": "Arrancador_N.E._attiny13a\\Arrancador_N.E._attiny13a.ino",
     "board": "MicroCore:avr:attiny13",
     "configuration": "clock=9M6,BOD=2v7,timing=micros_disabled",
-    "programmer": "AVRISP mkII",
-    "sketch": "Arrancador_N.E._attiny13a\\Arrancador_N.E._attiny13a.ino"
+    "programmer": "AVRISP mkII"
 }

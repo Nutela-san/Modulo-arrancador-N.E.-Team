@@ -4,17 +4,10 @@
             "name": "Win32",
             "includePath": [
                 "C:\\Users\\ponyj\\AppData\\Local\\Arduino15\\packages\\MicroCore\\hardware\\avr\\1.0.6\\**",
-                "C:\\Users\\ponyj\\AppData\\Local\\Arduino15\\packages\\MiniCore\\hardware\\avr\\2.0.5\\**",
-                "${workspaceFolder}/**",
                 "C:\\Program Files (x86)\\Arduino/**"
             ],
-            "defines": [
-                "_DEBUG",
-                "UNICODE",
-                "_UNICODE"
-            ],
-            "intelliSenseMode": "msvc-x64",
-            "forcedInclude": []
+            "forcedInclude": [],
+            "intelliSenseMode": "msvc-x64"
         }
     ],
     "version": 4
