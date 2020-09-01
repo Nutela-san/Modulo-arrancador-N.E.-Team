@@ -92,7 +92,7 @@ void readSenalBytes() {
   for(j=0;j<12;j++){
     for(i=0;i<8;i++){
       if(!(PINB & (1<<IRS))){
-        Courrent_senal[j] != 0x01; //intriduciendo 1 en el LSB.
+        Courrent_senal[j] |= 0x01; //intriduciendo 1 en el LSB.
         Courrent_senal[j] = Courrent_senal[j] << 1;   //corrimiento antes de meter el dato
       }
       else{
@@ -109,7 +109,7 @@ void waitSenal() {
   }
 }
 void waitSenal1() {
-  while (digitalRead(IRS)==HIGH){  // miestras que IRS esta en alto y el boton no se precione.
+  while (PINB & (1 << IRS)){  // miestras que IRS esta en alto y el boton no se precione.
   }
 }
 
@@ -142,8 +142,7 @@ void ProgramingActions(){
       _delay_ms(100);
       
     }
-    i=0;
-    state=1;
+    state=Stop;
   }
 }
 
@@ -160,12 +159,12 @@ void inticationLED(){
 bool Compare_Senals(byte n){
   j=0;
   for(i=0;i<12;i++){
-    if(Courrent_senal[i]=EEPROM.read(i+(12*n))){
+    if(Courrent_senal[i]==EEPROM.read(i+(12*n))){
       j++;
     }
-    else{
-      i=12;
-    }
+    //else{
+    //  i=12;
+    //}
   }
   if(j==12){
     return(true);
