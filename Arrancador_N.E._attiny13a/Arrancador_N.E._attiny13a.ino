@@ -34,7 +34,7 @@ void setup() {
   pinMode(Sout,OUTPUT);
   pinMode(button, INPUT_PULLUP);
   pinMode(IRS, INPUT);
-  state = 1;
+  state = Stop;
 }
 
 void loop() {
