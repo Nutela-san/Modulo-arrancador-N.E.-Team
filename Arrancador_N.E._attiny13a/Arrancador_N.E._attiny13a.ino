@@ -24,6 +24,7 @@ const byte Start=0, Stop=1, Ready=2;
 byte counter = 0, i, j, state = 0, Courrent_senal[12];
 
 
+
 void setup() {
 
 //  DDRB |= ((1 << ledG) | (1 << ledR) | (1 << Sout)); //definiendo entradas y salidas, por defecto las salidas estan en BAJO
@@ -35,6 +36,9 @@ void setup() {
   pinMode(button, INPUT_PULLUP);
   pinMode(IRS, INPUT);
   state = Stop;
+  counter = Stop;
+  attachInterrupt(digitalPinToInterrupt(1), senal, FALLING);
+
 }
 
 void loop() {
@@ -102,12 +106,18 @@ void readSenalBytes() {
 
 
 void waitSenal() {
-  while (digitalRead(IRS)==HIGH && digitalRead(button)==HIGH){  // miestras que IRS esta en alto y el boton no se precione.
+  interrupts();
+  while (counter && digitalRead(button)==HIGH){  // miestras que IRS esta en alto y el boton no se precione.
   }
+  noInterrupts();
+  counter = Stop;
 }
 void waitSenal1() {
-  while (PINB & (1 << IRS)){  // miestras que IRS esta en alto y el boton no se precione.
+  interrupts();
+  while (counter){  // miestras que IRS esta en alto y el boton no se precione.
   }
+  noInterrupts();
+  counter = Stop;
 }
 
   
@@ -174,4 +184,8 @@ void WriteSenal_eeprom(byte a){
   for(i=0;i<12;i++){
     EEPROM.write(i+(12*a),Courrent_senal[i]);
   }
+}
+
+void senal(){
+  counter = 0;
 }
