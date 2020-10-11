@@ -14,6 +14,9 @@
   * 
   * Nota: Esta version empieza a trabajar con el gestor de versiones gitHub
   ---------------------------------------------------------------------------------
+  ----[10/10/2020]v1.3.1.1-----------------------------------------------------------------
+  * En esta version estoy probando la calibracion le cristal del attiny13A, que se guarda en la 
+  * primera direccion de memoria EEPROM , por lo que las lecturas de la señales estaran recorridas.
 */
 #include <EEPROM.h>
 #include <Arduino.h>
@@ -156,7 +159,7 @@ void inticationLED(){
 bool Compare_Senals(byte n){
   j=0;
   for(i=0;i<12;i++){
-    if(Courrent_senal[i]==EEPROM.read(i+(12*n))){
+    if(Courrent_senal[i+1]==EEPROM.read(i+1+(12*n))){
       j++;
     }
     //else{
@@ -172,6 +175,6 @@ bool Compare_Senals(byte n){
 }
 void WriteSenal_eeprom(byte a){
   for(i=0;i<12;i++){
-    EEPROM.write(i+(12*a),Courrent_senal[i]);
+    EEPROM.write(i+1+(12*a),Courrent_senal[i]);
   }
 }
