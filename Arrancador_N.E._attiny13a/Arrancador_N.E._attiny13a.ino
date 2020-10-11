@@ -37,6 +37,11 @@ void setup() {
   pinMode(Sout,OUTPUT);
   pinMode(button, INPUT_PULLUP);
   pinMode(IRS, INPUT);
+
+  uint8_t cal = EEPROM.read(0);;
+  if(cal < 0x7F)
+    OSCCAL = cal;     //Utilizanfo el valor calibrado del oscilador, leyendolo desde la EEPROM
+
   state = 1;
 }
 
@@ -164,6 +169,7 @@ bool Compare_Senals(byte n){
     }
     //else{
     //  i=12;
+
     //}
   }
   if(j>=9){
