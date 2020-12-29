@@ -1,4 +1,4 @@
-/* -------------Trigger of Robots-------------- v1.3
+/* -------------Trigger of Robots-------------- v1.3.1
     Un codigo para una arracador para robots que soporta cualquier control IR (Universal)
     basado de en microcotrolador attiny13A.
                            ________
