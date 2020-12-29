@@ -14,9 +14,9 @@
   * 
   * Nota: Esta version empieza a trabajar con el gestor de versiones gitHub
   ---------------------------------------------------------------------------------
-  ----[10/10/2020]v1.3.1.1-----------------------------------------------------------------
-  * En esta version estoy probando la calibracion le cristal del attiny13A, que se guarda en la 
-  * primera direccion de memoria EEPROM , por lo que las lecturas de la señales estaran recorridas.
+  ----[29/12/2020]v1.3.2-----------------------------------------------------------------
+  * En esta version se hizo caca todo debido a que se instalo el soporte de hardware de arduino para matlab lo cual desconfiguro
+  * todo VS code, y estoy super enojado por eso.
 */
 #include <EEPROM.h>
 #include <Arduino.h>
