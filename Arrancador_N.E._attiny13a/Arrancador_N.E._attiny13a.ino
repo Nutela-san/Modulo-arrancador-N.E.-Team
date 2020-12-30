@@ -1,4 +1,4 @@
-/* -------------Trigger of Robots-------------- v1.3
+/* -------------Trigger of Robots-------------- v1.3.2
     Un codigo para una arracador para robots que soporta cualquier control IR (Universal)
     basado de en microcotrolador attiny13A.
                            ________
@@ -17,6 +17,12 @@
   ----[29/12/2020]v1.3.2-----------------------------------------------------------------
   * En esta version se hizo caca todo debido a que se instalo el soporte de hardware de arduino para matlab lo cual desconfiguro
   * todo VS code, y estoy super enojado por eso.
+  ---------------------------------------------------------------------------------------
+  ----[30/12/2020]-----------------------------------------------------------------------
+  * Se arreglo el problema con las tarjetas probocado por el pluging de matlab.
+  * Además v1.3.2 piensa mejorar el codia implementar la interrupcion por hardware INT0, 
+  * y al usar el timer como contador para hacer un muestreo muy preciso.
+  * 
 */
 #include <EEPROM.h>
 #include <Arduino.h>
@@ -38,7 +44,7 @@ void setup() {
   pinMode(button, INPUT_PULLUP);
   pinMode(IRS, INPUT);
 
-  uint8_t cal = EEPROM.read(0);;
+  uint8_t cal = EEPROM.read(0);
   if(cal < 0x7F)
     OSCCAL = cal;     //Utilizanfo el valor calibrado del oscilador, leyendolo desde la EEPROM
 

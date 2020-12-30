@@ -1,0 +1,5 @@
+{
+    "sketch": "Arrancador_N.E._attiny13a\\Arrancador_N.E._attiny13a.ino",
+    "board": "MicroCore:avr:13",
+    "configuration": "clock=9M6,eeprom=keep,BOD=2v7,timing=micros_disabled"
+}
