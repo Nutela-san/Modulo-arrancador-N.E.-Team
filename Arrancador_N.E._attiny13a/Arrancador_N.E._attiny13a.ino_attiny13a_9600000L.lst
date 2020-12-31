@@ -1,0 +1,539 @@
+
+C:\Users\ponyj\AppData\Local\Temp\arduino_build_145226/Arrancador_N.E._attiny13a.ino.elf:     file format elf32-avr
+
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+__vectors():
+   0:	09 c0       	rjmp	.+18     	; 0x14 <__ctors_end>
+   2:	2f c1       	rjmp	.+606    	; 0x262 <__vector_1>
+   4:	9c c0       	rjmp	.+312    	; 0x13e <__bad_interrupt>
+   6:	9b c0       	rjmp	.+310    	; 0x13e <__bad_interrupt>
+   8:	9a c0       	rjmp	.+308    	; 0x13e <__bad_interrupt>
+   a:	99 c0       	rjmp	.+306    	; 0x13e <__bad_interrupt>
+   c:	98 c0       	rjmp	.+304    	; 0x13e <__bad_interrupt>
+   e:	97 c0       	rjmp	.+302    	; 0x13e <__bad_interrupt>
+  10:	96 c0       	rjmp	.+300    	; 0x13e <__bad_interrupt>
+  12:	95 c0       	rjmp	.+298    	; 0x13e <__bad_interrupt>
+
+00000014 <__ctors_end>:
+__trampolines_start():
+  14:	11 24       	eor	r1, r1
+  16:	1f be       	out	0x3f, r1	; 63
+  18:	cf e9       	ldi	r28, 0x9F	; 159
+  1a:	cd bf       	out	0x3d, r28	; 61
+
+0000001c <__do_clear_bss>:
+__do_clear_bss():
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:2441
+  1c:	20 e0       	ldi	r18, 0x00	; 0
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:2442
+  1e:	a0 e6       	ldi	r26, 0x60	; 96
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:2443
+  20:	b0 e0       	ldi	r27, 0x00	; 0
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:2444
+  22:	01 c0       	rjmp	.+2      	; 0x26 <.do_clear_bss_start>
+
+00000024 <.do_clear_bss_loop>:
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:2446
+  24:	1d 92       	st	X+, r1
+
+00000026 <.do_clear_bss_start>:
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:2448
+  26:	a0 37       	cpi	r26, 0x70	; 112
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:2449
+  28:	b2 07       	cpc	r27, r18
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:2450
+  2a:	e1 f7       	brne	.-8      	; 0x24 <.do_clear_bss_loop>
+.do_clear_bss_start():
+  2c:	01 d0       	rcall	.+2      	; 0x30 <main>
+  2e:	4e c1       	rjmp	.+668    	; 0x2cc <_exit>
+
+00000030 <main>:
+main():
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:38
+  30:	87 b3       	in	r24, 0x17	; 23
+  32:	85 61       	ori	r24, 0x15	; 21
+  34:	87 bb       	out	0x17, r24	; 23
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:39
+  36:	87 b3       	in	r24, 0x17	; 23
+  38:	85 7f       	andi	r24, 0xF5	; 245
+  3a:	87 bb       	out	0x17, r24	; 23
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:40
+  3c:	c3 9a       	sbi	0x18, 3	; 24
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:51
+  3e:	81 e0       	ldi	r24, 0x01	; 1
+  40:	80 93 6f 00 	sts	0x006F, r24	; 0x80006f <state>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:53
+  44:	85 b7       	in	r24, 0x35	; 53
+  46:	82 60       	ori	r24, 0x02	; 2
+  48:	85 bf       	out	0x35, r24	; 53
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:54
+  4a:	85 b7       	in	r24, 0x35	; 53
+  4c:	8e 7f       	andi	r24, 0xFE	; 254
+  4e:	85 bf       	out	0x35, r24	; 53
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:55
+  50:	78 94       	sei
+loop():
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:59
+  52:	80 91 6f 00 	lds	r24, 0x006F	; 0x80006f <state>
+  56:	81 30       	cpi	r24, 0x01	; 1
+  58:	a9 f0       	breq	.+42     	; 0x84 <__SREG__+0x45>
+  5a:	78 f0       	brcs	.+30     	; 0x7a <__SREG__+0x3b>
+  5c:	82 30       	cpi	r24, 0x02	; 2
+  5e:	b9 f0       	breq	.+46     	; 0x8e <__SREG__+0x4f>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:88
+  60:	86 b3       	in	r24, 0x16	; 22
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:90
+  62:	80 91 6e 00 	lds	r24, 0x006E	; 0x80006e <signal_available>
+  66:	88 23       	and	r24, r24
+  68:	29 f1       	breq	.+74     	; 0xb4 <__stack+0x15>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:91
+  6a:	7c d0       	rcall	.+248    	; 0x164 <readSenalBytes()>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:93
+  6c:	80 e0       	ldi	r24, 0x00	; 0
+  6e:	c6 d0       	rcall	.+396    	; 0x1fc <Compare_Senals(unsigned char)>
+  70:	88 23       	and	r24, r24
+  72:	91 f0       	breq	.+36     	; 0x98 <__SREG__+0x59>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:94
+  74:	10 92 6f 00 	sts	0x006F, r1	; 0x80006f <state>
+  78:	ec cf       	rjmp	.-40     	; 0x52 <__SREG__+0x13>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:61
+  7a:	88 b3       	in	r24, 0x18	; 24
+  7c:	81 61       	ori	r24, 0x11	; 17
+  7e:	88 bb       	out	0x18, r24	; 24
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:62
+  80:	c2 98       	cbi	0x18, 2	; 24
+  82:	ee cf       	rjmp	.-36     	; 0x60 <__SREG__+0x21>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:69
+  84:	c2 9a       	sbi	0x18, 2	; 24
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:70
+  86:	88 b3       	in	r24, 0x18	; 24
+  88:	8e 7e       	andi	r24, 0xEE	; 238
+  8a:	88 bb       	out	0x18, r24	; 24
+  8c:	e9 cf       	rjmp	.-46     	; 0x60 <__SREG__+0x21>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:77
+  8e:	88 b3       	in	r24, 0x18	; 24
+  90:	85 60       	ori	r24, 0x05	; 5
+  92:	88 bb       	out	0x18, r24	; 24
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:78
+  94:	c4 98       	cbi	0x18, 4	; 24
+  96:	e4 cf       	rjmp	.-56     	; 0x60 <__SREG__+0x21>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:96
+  98:	81 e0       	ldi	r24, 0x01	; 1
+  9a:	b0 d0       	rcall	.+352    	; 0x1fc <Compare_Senals(unsigned char)>
+  9c:	88 23       	and	r24, r24
+  9e:	21 f0       	breq	.+8      	; 0xa8 <__stack+0x9>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:97
+  a0:	81 e0       	ldi	r24, 0x01	; 1
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:100
+  a2:	80 93 6f 00 	sts	0x006F, r24	; 0x80006f <state>
+  a6:	d5 cf       	rjmp	.-86     	; 0x52 <__SREG__+0x13>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:99
+  a8:	82 e0       	ldi	r24, 0x02	; 2
+  aa:	a8 d0       	rcall	.+336    	; 0x1fc <Compare_Senals(unsigned char)>
+  ac:	88 23       	and	r24, r24
+  ae:	89 f2       	breq	.-94     	; 0x52 <__SREG__+0x13>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:100
+  b0:	82 e0       	ldi	r24, 0x02	; 2
+  b2:	f7 cf       	rjmp	.-18     	; 0xa2 <__stack+0x3>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:105
+  b4:	b3 99       	sbic	0x16, 3	; 22
+  b6:	cd cf       	rjmp	.-102    	; 0x52 <__SREG__+0x13>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:106
+  b8:	10 92 6d 00 	sts	0x006D, r1	; 0x80006d <i>
+  bc:	80 91 6d 00 	lds	r24, 0x006D	; 0x80006d <i>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:107
+  c0:	b3 99       	sbic	0x16, 3	; 22
+  c2:	11 c0       	rjmp	.+34     	; 0xe6 <__stack+0x47>
+  c4:	83 30       	cpi	r24, 0x03	; 3
+  c6:	78 f4       	brcc	.+30     	; 0xe6 <__stack+0x47>
+_delay_ms():
+c:\program files (x86)\arduino\hardware\tools\avr\avr\include\util/delay.h:187
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  c8:	2f ef       	ldi	r18, 0xFF	; 255
+  ca:	8b e4       	ldi	r24, 0x4B	; 75
+  cc:	9d e1       	ldi	r25, 0x1D	; 29
+  ce:	21 50       	subi	r18, 0x01	; 1
+  d0:	80 40       	sbci	r24, 0x00	; 0
+  d2:	90 40       	sbci	r25, 0x00	; 0
+  d4:	e1 f7       	brne	.-8      	; 0xce <__stack+0x2f>
+  d6:	00 c0       	rjmp	.+0      	; 0xd8 <__stack+0x39>
+  d8:	00 00       	nop
+loop():
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:109
+  da:	80 91 6d 00 	lds	r24, 0x006D	; 0x80006d <i>
+  de:	8f 5f       	subi	r24, 0xFF	; 255
+  e0:	80 93 6d 00 	sts	0x006D, r24	; 0x80006d <i>
+  e4:	eb cf       	rjmp	.-42     	; 0xbc <__stack+0x1d>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:111
+  e6:	83 30       	cpi	r24, 0x03	; 3
+  e8:	d9 f6       	brne	.-74     	; 0xa0 <__stack+0x1>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:112
+  ea:	88 b3       	in	r24, 0x18	; 24
+  ec:	85 60       	ori	r24, 0x05	; 5
+  ee:	88 bb       	out	0x18, r24	; 24
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:114
+  f0:	80 91 6e 00 	lds	r24, 0x006E	; 0x80006e <signal_available>
+  f4:	81 11       	cpse	r24, r1
+  f6:	01 c0       	rjmp	.+2      	; 0xfa <__stack+0x5b>
+  f8:	ff cf       	rjmp	.-2      	; 0xf8 <__stack+0x59>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:115
+  fa:	34 d0       	rcall	.+104    	; 0x164 <readSenalBytes()>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:116
+  fc:	80 e0       	ldi	r24, 0x00	; 0
+  fe:	5f d0       	rcall	.+190    	; 0x1be <WriteSenal_eeprom(unsigned char)>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:117
+ 100:	1f d0       	rcall	.+62     	; 0x140 <inticationLED()>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:119
+ 102:	80 91 6e 00 	lds	r24, 0x006E	; 0x80006e <signal_available>
+ 106:	81 11       	cpse	r24, r1
+ 108:	01 c0       	rjmp	.+2      	; 0x10c <__stack+0x6d>
+ 10a:	ff cf       	rjmp	.-2      	; 0x10a <__stack+0x6b>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:120
+ 10c:	2b d0       	rcall	.+86     	; 0x164 <readSenalBytes()>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:121
+ 10e:	81 e0       	ldi	r24, 0x01	; 1
+ 110:	56 d0       	rcall	.+172    	; 0x1be <WriteSenal_eeprom(unsigned char)>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:122
+ 112:	16 d0       	rcall	.+44     	; 0x140 <inticationLED()>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:124
+ 114:	80 91 6e 00 	lds	r24, 0x006E	; 0x80006e <signal_available>
+ 118:	81 11       	cpse	r24, r1
+ 11a:	01 c0       	rjmp	.+2      	; 0x11e <__stack+0x7f>
+ 11c:	ff cf       	rjmp	.-2      	; 0x11c <__stack+0x7d>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:125
+ 11e:	22 d0       	rcall	.+68     	; 0x164 <readSenalBytes()>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:126
+ 120:	82 e0       	ldi	r24, 0x02	; 2
+ 122:	4d d0       	rcall	.+154    	; 0x1be <WriteSenal_eeprom(unsigned char)>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:127
+ 124:	88 b3       	in	r24, 0x18	; 24
+ 126:	8a 7f       	andi	r24, 0xFA	; 250
+ 128:	88 bb       	out	0x18, r24	; 24
+_delay_ms():
+c:\program files (x86)\arduino\hardware\tools\avr\avr\include\util/delay.h:187
+ 12a:	2f ef       	ldi	r18, 0xFF	; 255
+ 12c:	8d ee       	ldi	r24, 0xED	; 237
+ 12e:	92 e0       	ldi	r25, 0x02	; 2
+ 130:	21 50       	subi	r18, 0x01	; 1
+ 132:	80 40       	sbci	r24, 0x00	; 0
+ 134:	90 40       	sbci	r25, 0x00	; 0
+ 136:	e1 f7       	brne	.-8      	; 0x130 <__stack+0x91>
+ 138:	00 c0       	rjmp	.+0      	; 0x13a <__stack+0x9b>
+ 13a:	00 00       	nop
+ 13c:	b1 cf       	rjmp	.-158    	; 0xa0 <__stack+0x1>
+
+0000013e <__bad_interrupt>:
+__bad_interrupt():
+ 13e:	60 cf       	rjmp	.-320    	; 0x0 <__vectors>
+
+00000140 <inticationLED()>:
+_Z13inticationLEDv():
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:209
+ 140:	88 b3       	in	r24, 0x18	; 24
+ 142:	8a 7f       	andi	r24, 0xFA	; 250
+ 144:	88 bb       	out	0x18, r24	; 24
+ 146:	85 ef       	ldi	r24, 0xF5	; 245
+ 148:	91 e0       	ldi	r25, 0x01	; 1
+ 14a:	01 97       	sbiw	r24, 0x01	; 1
+delay():
+C:\Users\ponyj\AppData\Local\Arduino15\packages\MicroCore\hardware\avr\2.0.2\cores\microcore/wiring.c:138
+ *
+ * @param ms The number of milliseconds to pause
+ */
+void delay(uint16_t ms)
+{
+  while(ms--)
+ 14c:	21 f4       	brne	.+8      	; 0x156 <inticationLED()+0x16>
+_Z13inticationLEDv():
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:215
+ 14e:	88 b3       	in	r24, 0x18	; 24
+ 150:	85 60       	ori	r24, 0x05	; 5
+ 152:	88 bb       	out	0x18, r24	; 24
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:216
+ 154:	08 95       	ret
+_delay_ms():
+c:\program files (x86)\arduino\hardware\tools\avr\avr\include\util/delay.h:187
+ 156:	ef e5       	ldi	r30, 0x5F	; 95
+ 158:	f9 e0       	ldi	r31, 0x09	; 9
+ 15a:	31 97       	sbiw	r30, 0x01	; 1
+ 15c:	f1 f7       	brne	.-4      	; 0x15a <inticationLED()+0x1a>
+ 15e:	00 c0       	rjmp	.+0      	; 0x160 <inticationLED()+0x20>
+ 160:	00 00       	nop
+ 162:	f3 cf       	rjmp	.-26     	; 0x14a <inticationLED()+0xa>
+
+00000164 <readSenalBytes()>:
+_Z14readSenalBytesv():
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:159
+ 164:	10 92 60 00 	sts	0x0060, r1	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 168:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 16c:	8c 30       	cpi	r24, 0x0C	; 12
+ 16e:	18 f5       	brcc	.+70     	; 0x1b6 <readSenalBytes()+0x52>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:160
+ 170:	10 92 6d 00 	sts	0x006D, r1	; 0x80006d <i>
+ 174:	e0 91 60 00 	lds	r30, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 178:	80 91 6d 00 	lds	r24, 0x006D	; 0x80006d <i>
+ 17c:	88 30       	cpi	r24, 0x08	; 8
+ 17e:	b8 f4       	brcc	.+46     	; 0x1ae <readSenalBytes()+0x4a>
+ 180:	f0 e0       	ldi	r31, 0x00	; 0
+ 182:	ef 59       	subi	r30, 0x9F	; 159
+ 184:	ff 4f       	sbci	r31, 0xFF	; 255
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:161
+ 186:	b1 99       	sbic	0x16, 1	; 22
+ 188:	03 c0       	rjmp	.+6      	; 0x190 <readSenalBytes()+0x2c>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:162
+ 18a:	80 81       	ld	r24, Z
+ 18c:	81 60       	ori	r24, 0x01	; 1
+ 18e:	80 83       	st	Z, r24
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:164
+ 190:	80 81       	ld	r24, Z
+ 192:	88 0f       	add	r24, r24
+ 194:	80 83       	st	Z, r24
+_delay_us():
+c:\program files (x86)\arduino\hardware\tools\avr\avr\include\util/delay.h:276
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 196:	8f ea       	ldi	r24, 0xAF	; 175
+ 198:	94 e0       	ldi	r25, 0x04	; 4
+ 19a:	01 97       	sbiw	r24, 0x01	; 1
+ 19c:	f1 f7       	brne	.-4      	; 0x19a <readSenalBytes()+0x36>
+ 19e:	00 c0       	rjmp	.+0      	; 0x1a0 <readSenalBytes()+0x3c>
+ 1a0:	00 00       	nop
+_Z14readSenalBytesv():
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:160
+ 1a2:	80 91 6d 00 	lds	r24, 0x006D	; 0x80006d <i>
+ 1a6:	8f 5f       	subi	r24, 0xFF	; 255
+ 1a8:	80 93 6d 00 	sts	0x006D, r24	; 0x80006d <i>
+ 1ac:	e3 cf       	rjmp	.-58     	; 0x174 <readSenalBytes()+0x10>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:159
+ 1ae:	ef 5f       	subi	r30, 0xFF	; 255
+ 1b0:	e0 93 60 00 	sts	0x0060, r30	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 1b4:	d9 cf       	rjmp	.-78     	; 0x168 <readSenalBytes()+0x4>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:168
+ 1b6:	10 92 6e 00 	sts	0x006E, r1	; 0x80006e <signal_available>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:169
+ 1ba:	78 94       	sei
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:170
+ 1bc:	08 95       	ret
+
+000001be <WriteSenal_eeprom(unsigned char)>:
+_Z17WriteSenal_eepromh():
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:236
+ 1be:	cf 93       	push	r28
+ 1c0:	df 93       	push	r29
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:237
+ 1c2:	10 92 6d 00 	sts	0x006D, r1	; 0x80006d <i>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:238
+ 1c6:	90 e0       	ldi	r25, 0x00	; 0
+ 1c8:	6c e0       	ldi	r22, 0x0C	; 12
+ 1ca:	70 e0       	ldi	r23, 0x00	; 0
+ 1cc:	6e d0       	rcall	.+220    	; 0x2aa <__mulhi3>
+ 1ce:	ec 01       	movw	r28, r24
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:237
+ 1d0:	80 91 6d 00 	lds	r24, 0x006D	; 0x80006d <i>
+ 1d4:	8c 30       	cpi	r24, 0x0C	; 12
+ 1d6:	78 f4       	brcc	.+30     	; 0x1f6 <WriteSenal_eeprom(unsigned char)+0x38>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:238
+ 1d8:	90 e0       	ldi	r25, 0x00	; 0
+ 1da:	fc 01       	movw	r30, r24
+ 1dc:	ef 59       	subi	r30, 0x9F	; 159
+ 1de:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1e0:	01 96       	adiw	r24, 0x01	; 1
+operator=():
+C:\Users\ponyj\AppData\Local\Arduino15\packages\MicroCore\hardware\avr\2.0.2\libraries\EEPROM\src/EEPROM.h:47
+    uint8_t operator*() const            { return eeprom_read_byte( (uint8_t*) index ); }
+    operator uint8_t() const             { return **this; }
+    
+    //Assignment/write members.
+    EERef &operator=( const EERef &ref ) { return *this = *ref; }
+    EERef &operator=( uint8_t in )       { return eeprom_write_byte( (uint8_t*) index, in ), *this;  }
+ 1e2:	60 81       	ld	r22, Z
+ 1e4:	8c 0f       	add	r24, r28
+ 1e6:	9d 1f       	adc	r25, r29
+ 1e8:	53 d0       	rcall	.+166    	; 0x290 <eeprom_write_byte>
+_Z17WriteSenal_eepromh():
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:237
+ 1ea:	80 91 6d 00 	lds	r24, 0x006D	; 0x80006d <i>
+ 1ee:	8f 5f       	subi	r24, 0xFF	; 255
+ 1f0:	80 93 6d 00 	sts	0x006D, r24	; 0x80006d <i>
+ 1f4:	ed cf       	rjmp	.-38     	; 0x1d0 <WriteSenal_eeprom(unsigned char)+0x12>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:240
+ 1f6:	df 91       	pop	r29
+ 1f8:	cf 91       	pop	r28
+ 1fa:	08 95       	ret
+
+000001fc <Compare_Senals(unsigned char)>:
+_Z14Compare_Senalsh():
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:218
+ 1fc:	ef 92       	push	r14
+ 1fe:	ff 92       	push	r15
+ 200:	0f 93       	push	r16
+ 202:	1f 93       	push	r17
+ 204:	cf 93       	push	r28
+ 206:	df 93       	push	r29
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:219
+ 208:	10 92 60 00 	sts	0x0060, r1	; 0x800060 <__DATA_REGION_ORIGIN__>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:220
+ 20c:	10 92 6d 00 	sts	0x006D, r1	; 0x80006d <i>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:221
+ 210:	90 e0       	ldi	r25, 0x00	; 0
+ 212:	6c e0       	ldi	r22, 0x0C	; 12
+ 214:	70 e0       	ldi	r23, 0x00	; 0
+ 216:	49 d0       	rcall	.+146    	; 0x2aa <__mulhi3>
+ 218:	7c 01       	movw	r14, r24
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:220
+ 21a:	10 91 6d 00 	lds	r17, 0x006D	; 0x80006d <i>
+ 21e:	00 91 60 00 	lds	r16, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 222:	1c 30       	cpi	r17, 0x0C	; 12
+ 224:	98 f4       	brcc	.+38     	; 0x24c <Compare_Senals(unsigned char)+0x50>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:221
+ 226:	c1 2f       	mov	r28, r17
+ 228:	d0 e0       	ldi	r29, 0x00	; 0
+ 22a:	21 96       	adiw	r28, 0x01	; 1
+operator*():
+C:\Users\ponyj\AppData\Local\Arduino15\packages\MicroCore\hardware\avr\2.0.2\libraries\EEPROM\src/EEPROM.h:42
+
+    EERef( const int index )
+        : index( index )                 {}
+    
+    //Access/read members.
+    uint8_t operator*() const            { return eeprom_read_byte( (uint8_t*) index ); }
+ 22c:	ce 01       	movw	r24, r28
+ 22e:	8e 0d       	add	r24, r14
+ 230:	9f 1d       	adc	r25, r15
+ 232:	27 d0       	rcall	.+78     	; 0x282 <eeprom_read_byte>
+_Z14Compare_Senalsh():
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:221
+ 234:	cf 59       	subi	r28, 0x9F	; 159
+ 236:	df 4f       	sbci	r29, 0xFF	; 255
+ 238:	98 81       	ld	r25, Y
+ 23a:	98 13       	cpse	r25, r24
+ 23c:	03 c0       	rjmp	.+6      	; 0x244 <Compare_Senals(unsigned char)+0x48>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:222
+ 23e:	0f 5f       	subi	r16, 0xFF	; 255
+ 240:	00 93 60 00 	sts	0x0060, r16	; 0x800060 <__DATA_REGION_ORIGIN__>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:220
+ 244:	1f 5f       	subi	r17, 0xFF	; 255
+ 246:	10 93 6d 00 	sts	0x006D, r17	; 0x80006d <i>
+ 24a:	e7 cf       	rjmp	.-50     	; 0x21a <Compare_Senals(unsigned char)+0x1e>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:228
+ 24c:	81 e0       	ldi	r24, 0x01	; 1
+ 24e:	0a 30       	cpi	r16, 0x0A	; 10
+ 250:	08 f4       	brcc	.+2      	; 0x254 <Compare_Senals(unsigned char)+0x58>
+ 252:	80 e0       	ldi	r24, 0x00	; 0
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:234
+ 254:	df 91       	pop	r29
+ 256:	cf 91       	pop	r28
+ 258:	1f 91       	pop	r17
+ 25a:	0f 91       	pop	r16
+ 25c:	ff 90       	pop	r15
+ 25e:	ef 90       	pop	r14
+ 260:	08 95       	ret
+
+00000262 <__vector_1>:
+__vector_1():
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:138
+ 262:	1f 92       	push	r1
+ 264:	0f 92       	push	r0
+ 266:	0f b6       	in	r0, 0x3f	; 63
+ 268:	0f 92       	push	r0
+ 26a:	11 24       	eor	r1, r1
+ 26c:	8f 93       	push	r24
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:139
+ 26e:	81 e0       	ldi	r24, 0x01	; 1
+ 270:	80 93 6e 00 	sts	0x006E, r24	; 0x80006e <signal_available>
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:140
+ 274:	f8 94       	cli
+D:\Electronica\Proyectos\NUT-engineering\Electronica y Robótica para Desarrollo\Modulos\Arrancador IR\v1\Programacion\Modulo-arrancador-N.E.-Team\Arrancador_N.E._attiny13a/Arrancador_N.E._attiny13a.ino:141
+ 276:	8f 91       	pop	r24
+ 278:	0f 90       	pop	r0
+ 27a:	0f be       	out	0x3f, r0	; 63
+ 27c:	0f 90       	pop	r0
+ 27e:	1f 90       	pop	r1
+ 280:	18 95       	reti
+
+00000282 <eeprom_read_byte>:
+eeprom_read_byte():
+ 282:	e1 99       	sbic	0x1c, 1	; 28
+ 284:	fe cf       	rjmp	.-4      	; 0x282 <eeprom_read_byte>
+ 286:	8e bb       	out	0x1e, r24	; 30
+ 288:	e0 9a       	sbi	0x1c, 0	; 28
+ 28a:	99 27       	eor	r25, r25
+ 28c:	8d b3       	in	r24, 0x1d	; 29
+ 28e:	08 95       	ret
+
+00000290 <eeprom_write_byte>:
+eeprom_write_byte():
+ 290:	26 2f       	mov	r18, r22
+
+00000292 <eeprom_write_r18>:
+ 292:	e1 99       	sbic	0x1c, 1	; 28
+ 294:	fe cf       	rjmp	.-4      	; 0x292 <eeprom_write_r18>
+ 296:	1c ba       	out	0x1c, r1	; 28
+ 298:	8e bb       	out	0x1e, r24	; 30
+ 29a:	2d bb       	out	0x1d, r18	; 29
+ 29c:	0f b6       	in	r0, 0x3f	; 63
+ 29e:	f8 94       	cli
+ 2a0:	e2 9a       	sbi	0x1c, 2	; 28
+ 2a2:	e1 9a       	sbi	0x1c, 1	; 28
+ 2a4:	0f be       	out	0x3f, r0	; 63
+ 2a6:	01 96       	adiw	r24, 0x01	; 1
+ 2a8:	08 95       	ret
+
+000002aa <__mulhi3>:
+__mulhi3():
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:312
+ 2aa:	00 24       	eor	r0, r0
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:313
+ 2ac:	55 27       	eor	r21, r21
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:314
+ 2ae:	04 c0       	rjmp	.+8      	; 0x2b8 <__mulhi3+0xe>
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:317
+ 2b0:	08 0e       	add	r0, r24
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:318
+ 2b2:	59 1f       	adc	r21, r25
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:320
+ 2b4:	88 0f       	add	r24, r24
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:321
+ 2b6:	99 1f       	adc	r25, r25
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:324
+ 2b8:	00 97       	sbiw	r24, 0x00	; 0
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:325
+ 2ba:	29 f0       	breq	.+10     	; 0x2c6 <__mulhi3+0x1c>
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:328
+ 2bc:	76 95       	lsr	r23
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:329
+ 2be:	67 95       	ror	r22
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:331
+ 2c0:	b8 f3       	brcs	.-18     	; 0x2b0 <__mulhi3+0x6>
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:335
+ 2c2:	71 05       	cpc	r23, r1
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:337
+ 2c4:	b9 f7       	brne	.-18     	; 0x2b4 <__mulhi3+0xa>
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:340
+ 2c6:	80 2d       	mov	r24, r0
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:341
+ 2c8:	95 2f       	mov	r25, r21
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:342
+ 2ca:	08 95       	ret
+
+000002cc <_exit>:
+exit():
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:2278
+ 2cc:	f8 94       	cli
+
+000002ce <__stop_program>:
+__stop_program():
+/home/jenkins-mingw32/workspace/avr-gcc-staging/label/Ubuntu14.04x64-mingw32/gcc-build/avr/avr25/tiny-stack/libgcc/../../../../../gcc/libgcc/config/avr/lib1funcs.S:2280
+ 2ce:	ff cf       	rjmp	.-2      	; 0x2ce <__stop_program>

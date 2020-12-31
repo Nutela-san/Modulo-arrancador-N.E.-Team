@@ -3,10 +3,12 @@
         {
             "name": "Win32",
             "includePath": [
-                "C:\\Users\\ponyj\\Documents\\Arduino\\libraries\\**",
-                "C:\\Program Files (x86)\\Arduino\\libraries\\**",
+                "C:\\Users\\ponyj\\Documents\\Arduino\\**",
+                "C:\\Program Files (x86)\\Arduino\\**",
                 "C:\\Users\\ponyj\\AppData\\Local\\Arduino15\\packages\\MicroCore\\hardware\\avr\\2.0.2\\**",
-                "C:/Users/ponyj/AppData/Local/Arduino15/packages/MicroCore/hardware/avr/2.0.2/libraries/EEPROM/src"
+                "C:/Users/ponyj/AppData/Local/Arduino15/packages/MicroCore/hardware/avr/2.0.2/libraries/EEPROM/src",
+                "C:\\Program Files (x86)\\Arduino\\libraries\\**",
+                "C:\\Users\\ponyj\\Documents\\Arduino\\libraries\\**"
             ],
             "forcedInclude": [],
             "defines": [

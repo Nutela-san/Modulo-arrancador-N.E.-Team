@@ -31,76 +31,129 @@ const byte ledG = PB0, ledR = PB2, button = PB3, IRS = PB1, Sout = PB4;
 const int t1 = 1000, t3 = 500, time_M=500;  //time_M es el tiempo entre cada muestra
 const byte Start=0, Stop=1, Ready=2;
 byte counter = 0, i, j, state = 0, Courrent_senal[12];
-
+bool signal_available = FALSE;
 
 void setup() {
 
-//  DDRB |= ((1 << ledG) | (1 << ledR) | (1 << Sout)); //definiendo entradas y salidas, por defecto las salidas estan en BAJO
-//  DDRB &= ~((1 << IRS) | (1 << button));
-//  PORTB |= (1 << button);       //Activando el pull_up para el botton
-  pinMode(ledG, OUTPUT);
-  pinMode(ledR, OUTPUT);
-  pinMode(Sout,OUTPUT);
-  pinMode(button, INPUT_PULLUP);
-  pinMode(IRS, INPUT);
+  DDRB |= ((1 << ledG) | (1 << ledR) | (1 << Sout)); //definiendo entradas y salidas, por defecto las salidas estan en BAJO
+  DDRB &= ~((1 << IRS) | (1 << button));
+  PORTB |= (1 << button);       //Activando el pull_up para el botton
+// pinMode(ledG, OUTPUT);
+//  pinMode(ledR, OUTPUT);
+//  pinMode(Sout,OUTPUT);
+// pinMode(button, INPUT_PULLUP);
+//  pinMode(IRS, INPUT);
 
-  uint8_t cal = EEPROM.read(0);
-  if(cal < 0x7F)
-    OSCCAL = cal;     //Utilizanfo el valor calibrado del oscilador, leyendolo desde la EEPROM
+//  uint8_t cal = EEPROM.read(0);
+//  if(cal < 0x7F)
+//    OSCCAL = cal;     //Utilizanfo el valor calibrado del oscilador, leyendolo desde la EEPROM
 
-  state = 1;
+  state = Stop; //Estado incial es STOP
+
+  MCUCR |= (1<< ISC01); //configurando la interrupcion INTO
+  MCUCR &= ~(1<<ISC00); //para que se se genera una interrupcion externa con un falling
+  sei();  //Habilitando las interrupciones 
 }
 
 void loop() {
   switch (state) {
     case 0: {
-//        PORTB |= ((1 << ledG) | (1 << Sout)); //START
-//        PORTB &= ~(1 << ledR);
-        digitalWrite(ledG, HIGH);
-        digitalWrite(Sout, HIGH);
-        digitalWrite(ledR,LOW);
+        PORTB |= ((1 << ledG) | (1 << Sout)); //START
+        PORTB &= ~(1 << ledR);
+        // digitalWrite(ledG, HIGH);
+        // digitalWrite(Sout, HIGH);
+        // digitalWrite(ledR,LOW);
         break;
       }
     case 1: {
-//        PORTB |=  (1 << ledR); //STOP
-//        PORTB &= ~((0 << ledR) | (1<<ledG));
-        digitalWrite(ledG, LOW);
-        digitalWrite(Sout, LOW);
-        digitalWrite(ledR,HIGH);
+        PORTB |=  (1 << ledR); //STOP
+        PORTB &= ~((1 << Sout) | (1<<ledG));
+        // digitalWrite(ledG, LOW);
+        // digitalWrite(Sout, LOW);
+        // digitalWrite(ledR,HIGH);
         break;
       }
     case 2: {
-//        PORTB |= ((1<<ledG) | (1<<ledR));    //READY
-//        PORTB &= ~(1 << Sout);
-        digitalWrite(ledG, HIGH);
-        digitalWrite(Sout, LOW);
-        digitalWrite(ledR,HIGH);
+        PORTB |= ((1<<ledG) | (1<<ledR));    //READY
+        PORTB &= ~(1 << Sout);
+        // digitalWrite(ledG, HIGH);
+        // digitalWrite(Sout, LOW);
+        // digitalWrite(ledR,HIGH);
         break;
     }
     default:{
       break;
     }
   }
-  waitSenal();
-  StateTrigger();
-  ProgramingActions();
-}
+  while(!signal_available & (PINB & (1<<IRS)));
 
-void StateTrigger() {
-  readSenalBytes();
-  if (Compare_Senals(Start)) {
-    state = Start;        //start
+  if(signal_available){
+    readSenalBytes();
+
+    if (Compare_Senals(Start)) {
+      state = Start;        //start
+    }
+    else if (Compare_Senals(Stop)) {
+      state = Stop;        //stop
+    }
+    else if (Compare_Senals(Ready)) {
+      state = Ready;        //ready
+    }
   }
-  else if (Compare_Senals(Stop)) {
-    state = Stop;        //stop
-  }
-  else if (Compare_Senals(Ready)) {
-    state = Ready;        //ready
-  }
+
   else{
+    if(bit_is_clear(PINB,button)){
+      i=0;
+      while(bit_is_clear(PINB,button)&& i<3 ){
+        _delay_ms(t1);
+        i++;
+      }
+      if(i==3){
+        PORTB |= ((1<<ledG) | (1<<ledR));
+
+        while (!signal_available);
+        readSenalBytes();
+        WriteSenal_eeprom(Start);      //escribiedo en la EEPROM el valor de START
+        inticationLED();
+
+        while (!signal_available);
+        readSenalBytes();
+        WriteSenal_eeprom(Stop);      //escribiedo en la EEPROM el valor de Stop
+        inticationLED();
+
+        while (!signal_available);
+        readSenalBytes();
+        WriteSenal_eeprom(Ready);      //escribiedo en la EEPROM el valor de Ready
+        PORTB &= ~((1<<ledG) | (1<<ledR));     //Apagando led verde Y rojo
+        _delay_ms(100);
+      }
+      state=Stop;
+    }
   }
+  // waitSenal();
+  // StateTrigger();
+  // ProgramingActions();
 }
 
+ISR(INT0_vect){
+  signal_available = TRUE;
+  cli();
+}
+
+// void StateTrigger() {
+//   readSenalBytes();
+//   if (Compare_Senals(Start)) {
+//     state = Start;        //start
+//   }
+//   else if (Compare_Senals(Stop)) {
+//     state = Stop;        //stop
+//   }
+//   else if (Compare_Senals(Ready)) {
+//     state = Ready;        //ready
+//   }
+//   else{
+//   }
+// }
 
 void readSenalBytes() {
   for(j=0;j<12;j++){
@@ -112,59 +165,54 @@ void readSenalBytes() {
       _delay_us(time_M);
     }
   }
+  signal_available =FALSE;
+  sei();
 }
 
+// void waitSenal() {
+//   while (digitalRead(IRS)==HIGH && digitalRead(button)==HIGH){  // miestras que IRS esta en alto y el boton no se precione.
+//   }
+// }
+// void waitSenal1() {
+//   while (PINB & (1 << IRS)){  // miestras que IRS esta en alto y el boton no se precione.
+//   }
+// }
 
-void waitSenal() {
-  while (digitalRead(IRS)==HIGH && digitalRead(button)==HIGH){  // miestras que IRS esta en alto y el boton no se precione.
-  }
-}
-void waitSenal1() {
-  while (PINB & (1 << IRS)){  // miestras que IRS esta en alto y el boton no se precione.
-  }
-}
-
-  
-void ProgramingActions(){
-  if(bit_is_clear(PINB,button)){
-    i=0;
-    while(bit_is_clear(PINB,button)&& i<3 ){
-      _delay_ms(t1);
-      i++;
-    }
-    if(i==3){
-      PORTB |= ((1<<ledG) | (1<<ledR));
-
-      waitSenal1();
-      readSenalBytes();
-      WriteSenal_eeprom(Start);      //escribiedo en la EEPROM el valor de START
-      
-      inticationLED();
-      waitSenal1();
-      readSenalBytes();
-      WriteSenal_eeprom(Stop);      //escribiedo en la EEPROM el valor de Stop
-      
-      inticationLED();
-      waitSenal1();
-      readSenalBytes();
-      WriteSenal_eeprom(Ready);      //escribiedo en la EEPROM el valor de Ready
-
-      PORTB &= ~((1<<ledG) | (1<<ledR));     //Apagando led verde Y rojo
-      _delay_ms(100);
-      
-    }
-    state=Stop;
-  }
-}
+// void ProgramingActions(){
+//   if(bit_is_clear(PINB,button)){
+//     i=0;
+//     while(bit_is_clear(PINB,button)&& i<3 ){
+//       _delay_ms(t1);
+//       i++;
+//     }
+//     if(i==3){
+//       PORTB |= ((1<<ledG) | (1<<ledR));
+//       waitSenal1();
+//       readSenalBytes();
+//       WriteSenal_eeprom(Start);      //escribiedo en la EEPROM el valor de START
+//       inticationLED();
+//       waitSenal1();
+//       readSenalBytes();
+//       WriteSenal_eeprom(Stop);      //escribiedo en la EEPROM el valor de Stop
+//       inticationLED();
+//       waitSenal1();
+//       readSenalBytes();
+//       WriteSenal_eeprom(Ready);      //escribiedo en la EEPROM el valor de Ready
+//       PORTB &= ~((1<<ledG) | (1<<ledR));     //Apagando led verde Y rojo
+//       _delay_ms(100);
+//     }
+//     state=Stop;
+//   }
+// }
 
 void inticationLED(){
-//    PORTB &= ~((1<<ledG) | (1<<ledR));
-    digitalWrite(ledG, LOW);
-    digitalWrite(ledR, LOW);
+    PORTB &= ~((1<<ledG) | (1<<ledR));
+    // digitalWrite(ledG, LOW);
+    // digitalWrite(ledR, LOW);
     delay(t3);
-    digitalWrite(ledG, HIGH);
-    digitalWrite(ledR, HIGH);
-//    PORTB |=((1<<ledG) | (1<<ledR));
+    // digitalWrite(ledG, HIGH);
+    // digitalWrite(ledR, HIGH);
+    PORTB |=((1<<ledG) | (1<<ledR));
 }
 
 bool Compare_Senals(byte n){
@@ -175,16 +223,16 @@ bool Compare_Senals(byte n){
     }
     //else{
     //  i=12;
-
     //}
   }
-  if(j>=9){
+  if(j>=10){
     return(true);
   }
   else{
     return(false);
   }
 }
+
 void WriteSenal_eeprom(byte a){
   for(i=0;i<12;i++){
     EEPROM.write(i+1+(12*a),Courrent_senal[i]);
