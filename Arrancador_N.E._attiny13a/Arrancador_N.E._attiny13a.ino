@@ -31,7 +31,7 @@ const byte ledG = PB0, ledR = PB2, button = PB3, IRS = PB1, Sout = PB4;
 const int t1 = 1000, t3 = 500, time_M=500;  //time_M es el tiempo entre cada muestra
 const byte Start=0, Stop=1, Ready=2;
 byte counter = 0, i, j, state = 0, Courrent_senal[12];
-bool signal_available = FALSE;
+bool signal_available = false;
 
 void setup() {
 
@@ -50,8 +50,11 @@ void setup() {
 
   state = Stop; //Estado incial es STOP
 
-  MCUCR |= (1<< ISC01); //configurando la interrupcion INTO
+  MCUCR &= ~(1<< ISC01); //configurando la interrupcion INTO
   MCUCR &= ~(1<<ISC00); //para que se se genera una interrupcion externa con un falling
+  GIMSK |= (1<<6);
+  GIMSK &= ~(1<<5);
+
   sei();  //Habilitando las interrupciones 
 }
 
@@ -135,8 +138,8 @@ void loop() {
   // ProgramingActions();
 }
 
-ISR(INT0_vect){
-  signal_available = TRUE;
+ISR(EXT_INT0){
+  signal_available = true;
   cli();
 }
 
@@ -165,7 +168,7 @@ void readSenalBytes() {
       _delay_us(time_M);
     }
   }
-  signal_available =FALSE;
+  signal_available = false;
   sei();
 }
 
